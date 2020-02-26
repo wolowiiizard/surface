@@ -21,7 +21,7 @@ Class View
         ob_start();
         echo('<!doctype html>'.PHP_EOL);
         echo('<html lang="fr" dir="ltr">'.PHP_EOL);
-        printf( 
+        printf(
             $this->html_head_content,
             $this->page_keywords,
             $this->page_description,
@@ -33,7 +33,7 @@ Class View
             $this->page_description,
             $this->page_title
             );
-*/            
+*/
         echo('<body>'.PHP_EOL);
         echo($this->page_menu);
         echo($this->page_content);
@@ -100,7 +100,7 @@ Class View
     {
         global $oApp;
 
-/*        
+/*
         if ( Validate::checkstring($sTemplateName) ) {
             throw new \Exception(__CLASS__.": Error template name '$sTemplateName' not valid", 1);
         }
@@ -110,7 +110,7 @@ Class View
         $sFile = $oApp->base_path . 'app/template/'.$sTemplateName;
         $sTemplate = $this->readTemplateFile($sFile);
         if ( $sTemplate === false ) {
-            $sFile = $oApp->base_path . 'app/core/template/'.$sTemplateName;
+            $sFile = $oApp->base_path . 'core/template/'.$sTemplateName;
             $sTemplate = $this->readTemplateFile($sFile);
             if ( $sTemplate === false ) {
                 throw new \Exception("Template not found" . $sTemplateName, 1);
@@ -128,7 +128,7 @@ Class View
             $sTemplate = file_get_contents($sFile);
             if ($sTemplate === false) {
                 throw new \Exception("Unable to load template " . $sTemplateName, 1);
-            } 
+            }
         }
 
         return($sTemplate);

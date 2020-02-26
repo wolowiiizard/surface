@@ -4,7 +4,7 @@ if ( !isset($_SERVER['DOCUMENT_ROOT'])) {
 }
 // Chemin de la base de l'application avec un slash final
 $sBasepath=$_SERVER['DOCUMENT_ROOT'].'/';
-require_once($sBasepath."/app/core/autoload.php");
+require_once($sBasepath."core/autoload.php");
 
 session_start();
 $oRouter = new Router();
@@ -30,6 +30,7 @@ $oRouter->addRoute('/piece-save',          'PieceController',          'piece-sa
 $oRouter->addRoute('/contact',             'ContactController',        'contact');
 $oRouter->addRoute('/eco',                 'EcoController',            'eco');
 $oRouter->addRoute('/rgpd',                'RgpdController',           'rgpd');
+$oRouter->addRoute('/api/ville',           'ApiController',            'ville');
 
 // Recherche de la route dans request_path et initialise controller_name et controller_action
 $oRouter->matchRoute();
@@ -40,4 +41,3 @@ $oApp->runController($oRouter->controller_name, $oRouter->controller_action);
 if ($oApp->exit_code === App::EXIT_REDIRECT) {
     header( "Location: http://".$_SERVER['HTTP_HOST'].$oApp->redirect_path );
     }
-
